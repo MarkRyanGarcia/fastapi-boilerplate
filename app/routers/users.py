@@ -10,7 +10,7 @@ router = APIRouter()
 
 
 @router.get("/users/{user_id}", response_model=UserOut | None)
-def get_user(
+async def get_user(
     user_id: str,
     db: Annotated[Session, Depends(get_db)],
     auth_id: Annotated[str, Depends(require_clerk_auth)],
@@ -22,7 +22,7 @@ def get_user(
 
 
 @router.post("/users", response_model=UserOut)
-def create_user(
+async def create_user(
     user_in: UserCreate,
     db: Annotated[Session, Depends(get_db)],
     auth_id: Annotated[str, Depends(require_clerk_auth)],
