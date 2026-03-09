@@ -8,4 +8,4 @@ DATABASE_URL = os.getenv(
     "postgresql+asyncpg://user:password@localhost/dbname",
 )
 CLERK_SECRET_KEY = os.getenv("CLERK_SECRET_KEY", "sk-...")
-DEBUG = os.getenv("DEBUG").lower() in ("true", "1", "yes")
+DEBUG = os.getenv("DEBUG", "").lower() in ("true", "1", "yes")
