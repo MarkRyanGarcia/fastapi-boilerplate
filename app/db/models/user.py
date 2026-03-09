@@ -14,5 +14,3 @@ class User(Base):
     created_at: Mapped[datetime] = mapped_column(
         DateTime, nullable=False, server_default=func.now()
     )
-
-    team_membership = relationship("TeamMember", back_populates="user")
