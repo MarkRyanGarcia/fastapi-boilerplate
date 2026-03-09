@@ -24,3 +24,13 @@ CLERK_SECRET_KEY=sk_live...  # Optional if you want clerk auth
 
 3. Run command:
 `fastapi dev app`
+
+
+## Database Migrations
+Only do this when you change the database models / tables
+1. Make necessary changes in `/app/db/models/...`
+2. Import model in `/app/db/models/__init__.py`
+3. Generate a migration revision:
+    `alembic revision --autogenerate -m "{revision message}"
+4. Verify changes in `/alembic/versions/...`
+5. Migrate database changes: `alembic upgrade head`
